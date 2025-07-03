@@ -19,7 +19,7 @@ export const filterGames = (
 
 export const getUniqueCategories = (games: CasinoGame[]): string[] => {
   const categories = games.flatMap(game => game.categories);
-  return [...new Set(categories)].sort();
+  return Array.from(new Set(categories)).sort();
 };
 
 export const getCategoryDisplayName = (category: string): string => {

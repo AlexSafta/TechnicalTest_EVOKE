@@ -51,7 +51,7 @@ export const useFilters = (games: CasinoGame[]) => {
   // Get unique categories from all games
   const availableCategories = useMemo(() => {
     const categories = games.flatMap(game => game.categories);
-    return [...new Set(categories)].sort();
+    return Array.from(new Set(categories)).sort();
   }, [games]);
 
   return {
