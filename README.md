@@ -71,16 +71,30 @@ casino-content-portal/
    cd casino-content-portal
    ```
 
-2. **Install backend dependencies**
+2. **Install all dependencies**
    ```bash
+   npm run install:all
+   ```
+   
+   Or manually:
+   ```bash
+   # Install root dependencies
+   npm install
+   
+   # Install backend dependencies
    cd backend
+   npm install
+   
+   # Install frontend dependencies
+   cd ../frontend
    npm install
    ```
 
-3. **Install frontend dependencies**
+3. **Set up environment variables (optional)**
    ```bash
-   cd ../frontend
-   npm install
+   # Copy example env files
+   cp backend/.env.example backend/.env
+   cp frontend/.env.example frontend/.env
    ```
 
 ### Running the Application
@@ -226,6 +240,43 @@ For questions or issues, please check the following:
 2. Verify that both backend and frontend servers are running
 3. Check the browser console for any error messages
 4. Ensure ports 3000 and 5000 are available
+
+## 🔧 Troubleshooting
+
+### TypeScript Issues
+
+If you encounter TypeScript errors related to JSX elements, ensure:
+
+1. **React App Environment File**: Make sure `src/react-app-env.d.ts` exists with:
+   ```typescript
+   /// <reference types="react-scripts" />
+   ```
+
+2. **Dependencies**: Verify all React types are installed:
+   ```bash
+   npm install --save-dev @types/react @types/react-dom
+   ```
+
+3. **TypeScript Configuration**: Check `tsconfig.json` includes:
+   ```json
+   {
+     "compilerOptions": {
+       "jsx": "react-jsx"
+     },
+     "include": ["src", "src/**/*"]
+   }
+   ```
+
+### Development Issues
+
+- **Port conflicts**: Change ports in package.json scripts if 3000/5000 are occupied
+- **CORS errors**: Ensure backend CORS is configured for your frontend URL
+- **Hot reload**: If changes don't reflect, restart the development server
+
+### Build Issues
+
+- **Build failures**: Run `npm run build` to check for TypeScript errors
+- **Test failures**: Run `npm test` to identify failing tests
 
 ---
 

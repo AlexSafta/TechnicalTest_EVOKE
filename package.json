@@ -14,7 +14,9 @@
     "test:backend": "cd backend && npm test",
     "test:frontend": "cd frontend && npm test",
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "start": "cd backend && npm start"
+    "start": "cd backend && npm start",
+    "health-check": "node -e \"console.log('Use ./health-check.sh (Linux/Mac) or ./health-check.ps1 (Windows) for detailed health check')\";",
+    "clean": "rm -rf node_modules backend/node_modules frontend/node_modules backend/dist frontend/build"
   },
   "devDependencies": {
     "concurrently": "^8.2.0"
