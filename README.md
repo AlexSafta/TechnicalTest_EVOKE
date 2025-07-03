@@ -87,7 +87,7 @@ casino-content-portal/
    
    # Install frontend dependencies
    cd ../frontend
-   npm install
+   npm install //  npm install --legacy-peer-deps 
    ```
 
 3. **Set up environment variables (optional)**
